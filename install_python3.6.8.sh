@@ -15,6 +15,8 @@ function installPython() {
     ./configure --prefix=/usr/local/Python3.6/ --enable-optimizations --enable-loadable-sqlite-extensions --with-ssl --enable-shared
     make -j `cat /proc/cpuinfo   | grep processor | wc -l`
     make install
+    echo /usr/local/Python3.6/lib/ >> /etc/ld.so.conf
+    ldconfig
 }
 
 function main() {
